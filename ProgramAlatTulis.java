@@ -28,8 +28,6 @@ public class ProgramAlatTulis extends javax.swing.JFrame {
     DefaultTableModel model;
     NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
 
-// Set the currency symbol to "Rp."
-
     public ProgramAlatTulis() {
     
      super("Real-Time Clock");
@@ -45,16 +43,16 @@ public class ProgramAlatTulis extends javax.swing.JFrame {
             model = new DefaultTableModel();
          int length = 10; // Length of the random string
         String randomString = generateRandomString(length);
-        jTextField1.setText(randomString);
-        jTextField1.setEnabled(false);
+        notran.setText(randomString);
+        notran.setEnabled(false);
         model.addColumn("Nama Barang");
         model.addColumn("Harga (pack)");
         model.addColumn("Jumlah Beli");
         model.addColumn("Jumlah");
         
-        jTable1.setModel(model);  
+        tabel.setModel(model);  
         
-            jTextField10.getDocument().addDocumentListener(new DocumentListener() {
+            ubyr.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
                 updateResult();
@@ -72,23 +70,23 @@ public class ProgramAlatTulis extends javax.swing.JFrame {
 
             private void updateResult() {
                 try {
-                    double value8 = Double.parseDouble(jTextField8.getText());
-                    double value9 = Double.parseDouble(jTextField9.getText());
-                    double value10 = Double.parseDouble(jTextField10.getText());
+                    double value8 = Double.parseDouble(thrg.getText());
+                    double value9 = Double.parseDouble(disk.getText());
+                    double value10 = Double.parseDouble(ubyr.getText());
                     
                     double result = value10 - (value8 - value9) ;
                  int resultInteger = (int) result;
                  if( resultInteger >= 0){
-                 jTextField11.setText(String.valueOf(resultInteger));
-                        jButton3.setEnabled(true);
+                 kbln.setText(String.valueOf(resultInteger));
+                        simpan.setEnabled(true);
                  }else{
-                    jTextField11.setText("Uang Gak cukup");   
-                 jButton3.setEnabled(false);
+                    kbln.setText("Uang Gak cukup");   
+                 simpan.setEnabled(false);
                  }
 
                 } catch (NumberFormatException ex) {
-                         jButton3.setEnabled(false);
-                    jTextField11.setText("Uang Gak cukup");
+                         simpan.setEnabled(false);
+                    kbln.setText("Uang Gak cukup");
                 }
             }
         });
@@ -112,7 +110,7 @@ public class ProgramAlatTulis extends javax.swing.JFrame {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String formattedDateTime = now.format(formatter);
 
-        jTextField3.setText(formattedDateTime);
+        tanggal.setText(formattedDateTime);
         
     }
 
@@ -127,31 +125,31 @@ public class ProgramAlatTulis extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        notran = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        tanggal = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        kdbrg = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        nbrg = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        hbrg = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        jbeli = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
-        jTextField7 = new javax.swing.JTextField();
+        tabel = new javax.swing.JTable();
+        simpan = new javax.swing.JButton();
+        ttl = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        thrg = new javax.swing.JTextField();
+        disk = new javax.swing.JTextField();
+        ubyr = new javax.swing.JTextField();
+        kbln = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -163,81 +161,81 @@ public class ProgramAlatTulis extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel2.setText("No Transaksi");
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        jTextField1.setName("textTransaksiNo"); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        notran.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        notran.setName("textTransaksiNo"); // NOI18N
+        notran.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                notranActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel3.setText("Nama Customer");
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        name.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                nameActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel4.setText("Tanggal");
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        jTextField3.setEnabled(false);
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        tanggal.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        tanggal.setEnabled(false);
+        tanggal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                tanggalActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel5.setText("Kode Barang");
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A001", "A002", "A003", "A004", "A005", "A006", "A007" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        kdbrg.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        kdbrg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A001", "A002", "A003", "A004", "A005", "A006", "A007" }));
+        kdbrg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                kdbrgActionPerformed(evt);
             }
         });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel6.setText("Nama Barang");
 
-        jTextField4.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTextField4.setEnabled(false);
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        nbrg.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        nbrg.setEnabled(false);
+        nbrg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                nbrgActionPerformed(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel7.setText("Harga Barang");
 
-        jTextField5.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTextField5.setEnabled(false);
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        hbrg.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        hbrg.setEnabled(false);
+        hbrg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                hbrgActionPerformed(evt);
             }
         });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel8.setText("Jumlah Beli (pack)");
 
-        jTextField6.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        jbeli.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jbeli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                jbeliActionPerformed(evt);
             }
         });
 
-        jTable1.setBackground(new java.awt.Color(255, 153, 153));
-        jTable1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabel.setBackground(new java.awt.Color(255, 153, 153));
+        tabel.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        tabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -248,24 +246,24 @@ public class ProgramAlatTulis extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setSurrendersFocusOnKeystroke(true);
-        jScrollPane1.setViewportView(jTable1);
+        tabel.setSurrendersFocusOnKeystroke(true);
+        jScrollPane1.setViewportView(tabel);
 
-        jButton3.setBackground(new java.awt.Color(153, 153, 153));
-        jButton3.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        jButton3.setText("Simpan");
-        jButton3.setEnabled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        simpan.setBackground(new java.awt.Color(153, 153, 153));
+        simpan.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        simpan.setText("Simpan");
+        simpan.setEnabled(false);
+        simpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                simpanActionPerformed(evt);
             }
         });
 
-        jTextField7.setBackground(new java.awt.Color(255, 102, 102));
-        jTextField7.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        ttl.setBackground(new java.awt.Color(255, 102, 102));
+        ttl.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
+        ttl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                ttlActionPerformed(evt);
             }
         });
 
@@ -281,35 +279,35 @@ public class ProgramAlatTulis extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel12.setText("Kembalian");
 
-        jTextField8.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jTextField8.setEnabled(false);
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        thrg.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        thrg.setEnabled(false);
+        thrg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                thrgActionPerformed(evt);
             }
         });
 
-        jTextField9.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jTextField9.setEnabled(false);
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        disk.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        disk.setEnabled(false);
+        disk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                diskActionPerformed(evt);
             }
         });
 
-        jTextField10.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jTextField10.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+        ubyr.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        ubyr.setForeground(new java.awt.Color(153, 153, 153));
+        ubyr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
+                ubyrActionPerformed(evt);
             }
         });
 
-        jTextField11.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jTextField11.setEnabled(false);
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+        kbln.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        kbln.setEnabled(false);
+        kbln.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
+                kblnActionPerformed(evt);
             }
         });
 
@@ -330,7 +328,7 @@ public class ProgramAlatTulis extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ttl, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
@@ -340,36 +338,33 @@ public class ProgramAlatTulis extends javax.swing.JFrame {
                                 .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField11))
+                            .addComponent(thrg, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(ubyr, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(disk, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(kbln))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
+                        .addComponent(simpan)
                         .addGap(13, 13, 13))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(kdbrg, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(46, 46, 46)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(nbrg, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(hbrg, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel7))
                                 .addGap(47, 47, 47)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, 0)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel8))))))
+                                    .addComponent(tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jbeli, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8))))
                         .addGap(30, 30, 30))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -377,8 +372,8 @@ public class ProgramAlatTulis extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE))
+                            .addComponent(name)
+                            .addComponent(notran, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(199, 199, 199))))
@@ -390,12 +385,12 @@ public class ProgramAlatTulis extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(notran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -405,10 +400,10 @@ public class ProgramAlatTulis extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(kdbrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nbrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(hbrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -418,25 +413,25 @@ public class ProgramAlatTulis extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel9)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(thrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(disk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel10))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ubyr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel11)))
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(kbln, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ttl, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -444,157 +439,150 @@ public class ProgramAlatTulis extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void nbrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nbrgActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_nbrgActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void notranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notranActionPerformed
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_jTextField1ActionPerformed
-   private void addComboBoxKeyListener() {
+    }//GEN-LAST:event_notranActionPerformed
+    private void addComboBoxKeyListener() {
        
-        jComboBox1.addKeyListener(new KeyAdapter() {
+        kdbrg.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
             
-            Object selectedItem = jComboBox1.getSelectedItem();
+            Object selectedItem = kdbrg.getSelectedItem();
             if(selectedItem == "A001"){
-             jTextField4.setText("Pensil");
-                     jTextField5.setText("20000");
+             nbrg.setText("Pensil");
+                     hbrg.setText("20000");
             } else if(selectedItem == "A002"){
-             jTextField4.setText("Penghapus");
-                     jTextField5.setText("15000");
+             nbrg.setText("Penghapus");
+                     hbrg.setText("15000");
             } else if (selectedItem == "A003"){
-             jTextField4.setText("Rautan");
-                     jTextField5.setText("10000");
+             nbrg.setText("Rautan");
+                     hbrg.setText("10000");
             } else if (selectedItem == "A004"){
-             jTextField4.setText("Pulpen");
-                     jTextField5.setText("25000");
+             nbrg.setText("Pulpen");
+                     hbrg.setText("25000");
             } else if (selectedItem == "A005"){
-             jTextField4.setText("Penggaris");
-                     jTextField5.setText("14000"); 
+             nbrg.setText("Penggaris");
+                     hbrg.setText("14000"); 
             } else if (selectedItem == "A006"){
-             jTextField4.setText("Buku");
-                     jTextField5.setText("30000"); 
+             nbrg.setText("Buku");
+                     hbrg.setText("30000"); 
             } else if (selectedItem == "A007"){
-             jTextField4.setText("Spidol");
-                     jTextField5.setText("16000");         
+             nbrg.setText("Spidol");
+                     hbrg.setText("16000");         
             }         
             }
         });
     }
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-   jTextField4.setText("");
-                     jTextField5.setText("");
+    private void kdbrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kdbrgActionPerformed
+    nbrg.setText("");
+    hbrg.setText("");
+        // Add more items as neededTODO add your handling code here:
+    }//GEN-LAST:event_kdbrgActionPerformed
 
-    // Add more items as neededTODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-  // TODO add your handling code here:
-
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
-public void clearAll(){
-  jTextField4.setText(""); // First column value
-            jTextField5.setText(""); // Second column value
-            jTextField6.setText(""); 
+    }//GEN-LAST:event_nameActionPerformed
+
+    private void hbrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hbrgActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hbrgActionPerformed
+    public void clearAll(){
+        nbrg.setText(""); // First column value
+        hbrg.setText(""); // Second column value
+        jbeli.setText(""); 
 }
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void tanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tanggalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_tanggalActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void diskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diskActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_diskActionPerformed
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+    private void ubyrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubyrActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ubyrActionPerformed
 
-       // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
         System.out.println("        Toko Alat Tulis Dirausa");
         System.out.println("***************************************");
         System.out.println("Jumlah Beli\tBarang           Harga");
         System.out.println("---------------------------------------");
-        int rowCount = jTable1.getRowCount();
+        int rowCount = tabel.getRowCount();
         for (int i = 0; i < rowCount; i++) {
-            String barang = jTable1.getValueAt(i, 0).toString();
-            String harga = jTable1.getValueAt(i, 1).toString();
-                   String jumlah = jTable1.getValueAt(i, 2).toString();
+            String barang = tabel.getValueAt(i, 0).toString();
+            String harga = tabel.getValueAt(i, 1).toString();
+            String jumlah = tabel.getValueAt(i, 2).toString();
             System.out.println(jumlah+ "\t\t" +barang + "        " + harga);
         }
         System.out.println("---------------------------------------");
-        System.out.println("Subtotal:\t\t\t " +  jTextField10.getText());
-        System.out.println("Diskon ("+ "10%):\t\t\t" +  jTextField9.getText());
+        System.out.println("Subtotal:\t\t\t " +  ubyr.getText());
+        System.out.println("Diskon ("+ "10%):\t\t\t" +  disk.getText());
         System.out.println("---------------------------------------");
-        System.out.println("Pembayaran Tunai:\t\t " +  jTextField10.getText());
-        System.out.println("Kembalian:\t\t\t  " +  jTextField11.getText());
-        System.out.println("\nTanggal dan Jam: " + jTextField3.getText());
+        System.out.println("Pembayaran Tunai:\t\t " +  ubyr.getText());
+        System.out.println("Kembalian:\t\t\t  " +  kbln.getText());
+        System.out.println("\nTanggal dan Jam: " + tanggal.getText());
         System.out.println("***************************************");
-        System.out.println("               TERIMAKASIH");        // TODO add yourString newText = currentText + "===============================================================================================Nota===========================\n\n";
+        System.out.println("               TERIMAKASIH");        
+    }//GEN-LAST:event_simpanActionPerformed
 
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void ttlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ttlActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_ttlActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void kblnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kblnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    }//GEN-LAST:event_kblnActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-  jTable1.setBackground(new java.awt.Color(255, 204, 204));
-
-    
-        int value5 = Integer.parseInt(jTextField5.getText());
-        int value6 = Integer.parseInt(jTextField6.getText());
+    private void jbeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbeliActionPerformed
+    tabel.setBackground(new java.awt.Color(255, 204, 204));
+        int value5 = Integer.parseInt(hbrg.getText());
+        int value6 = Integer.parseInt(jbeli.getText());
         int product = value5 * value6;
 
-model.addRow(new Object[]{
-            jTextField4.getText(), // First column value
-            jTextField5.getText(), // Second column value
-            jTextField6.getText(), // Third column value
+    model.addRow(new Object[]{
+            nbrg.getText(), // First column value
+            hbrg.getText(), // Second column value
+            jbeli.getText(), // Third column value
             String.valueOf(product) // Fourth column value (product)
         });
-     this.clearAll();
-     if(jTextField8.getText().equals("")){
-     jTextField8.setText(String.valueOf(product));
-     }else{
-             int currentValue =Integer.parseInt(jTextField8.getText());
+    this.clearAll();
+    if(thrg.getText().equals("")){
+    thrg.setText(String.valueOf(product));
+    }else{
+            int currentValue =Integer.parseInt(thrg.getText());
     int productValue = currentValue + product; // Assuming 'product' is the numerical value you want to multiply
-    jTextField8.setText(String.valueOf(productValue));
-     }
+    thrg.setText(String.valueOf(productValue));
+    }
      
-      int value = Integer.parseInt(jTextField8.getText());
+    int value = Integer.parseInt(thrg.getText());
     
     if (value >= 100000) {
-          int values =  Integer.parseInt(jTextField8.getText());
+        int values =  Integer.parseInt(thrg.getText());
     
     double result =values * 0.1; 
     
-    jTextField9.setText(String.valueOf(result));
+    disk.setText(String.valueOf(result));
     } else {
-          jTextField9.setText(String.valueOf(0));
+        disk.setText(String.valueOf(0));
     }
-       double value8 = Double.parseDouble(jTextField8.getText());
-    double value9 = Double.parseDouble(jTextField9.getText());
+       double value8 = Double.parseDouble(thrg.getText());
+    double value9 = Double.parseDouble(disk.getText());
     
     int result = (int) (value8 - value9);
     
-    jTextField7.setText( String.valueOf(result));        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    ttl.setText( String.valueOf(result));        // TODO add your handling code here:
+    }//GEN-LAST:event_jbeliActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void thrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_thrgActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
-
+    }//GEN-LAST:event_thrgActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -630,8 +618,8 @@ model.addRow(new Object[]{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JTextField disk;
+    private javax.swing.JTextField hbrg;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -646,17 +634,17 @@ model.addRow(new Object[]{
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jbeli;
+    private javax.swing.JTextField kbln;
+    private javax.swing.JComboBox<String> kdbrg;
+    private javax.swing.JTextField name;
+    private javax.swing.JTextField nbrg;
+    private javax.swing.JTextField notran;
+    private javax.swing.JButton simpan;
+    private javax.swing.JTable tabel;
+    private javax.swing.JTextField tanggal;
+    private javax.swing.JTextField thrg;
+    private javax.swing.JTextField ttl;
+    private javax.swing.JTextField ubyr;
     // End of variables declaration//GEN-END:variables
 }
